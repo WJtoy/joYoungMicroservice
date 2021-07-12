@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungFailedProcesslogMapper" >
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO joyoung_failed_processlog(
+        	id,
+        	b2b_order_id,
+			interface_name,
+			info_json,
+			result_json,
+			process_comment,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			quarter
+		) VALUES (
+			#{id},
+			#{b2bOrderId},
+			#{interfaceName},
+			#{infoJson},
+			#{resultJson},
+			#{processComment},
+			#{createById},
+			#{createDt},
+			#{updateById},
+			#{updateDt},
+			#{quarter}
+		)
+    </insert>
+
+	<select id="getList" resultType="com.kkl.kklplus.entity.b2bcenter.rpt.B2BOrderProcesslog">
+		SELECT
+			fp.id,
+			interface_name,
+			info_json,
+			result_json,
+			fp.process_flag,
+			fp.process_comment,
+			fp.create_by,
+			fp.create_date as 'createDt',
+			oi.order_no as 'b2bOrderNo',
+			oi.kkl_order_no as 'kklOrderNo'
+		FROM
+			joyoung_failed_processlog fp
+			left join joyoung_order_info oi on fp.b2b_order_id = oi.id
+		<where>
+			AND fp.process_flag = 0
+			<if test="code != null and code != ''">
+				AND interface_name = #{code}
+			</if>
+			<if test="processLogSearchModel != null">
+				<if test="processLogSearchModel.b2bOrderNo != null and processLogSearchModel.b2bOrderNo != ''">
+					AND oi.order_no = #{processLogSearchModel.b2bOrderNo}
+				</if>
+				<if test="processLogSearchModel.kklOrderNo != null and processLogSearchModel.kklOrderNo != ''">
+					AND oi.kkl_order_no = #{processLogSearchModel.kklOrderNo}
+				</if>
+				<if test="processLogSearchModel.beginCreateDt != null">
+					AND fp.create_date >= #{processLogSearchModel.beginCreateDt}
+				</if>
+				<if test="processLogSearchModel.endCreateDt != null">
+					AND fp.create_date &lt;= #{processLogSearchModel.endCreateDt}
+				</if>
+			</if>
+		</where>
+		ORDER BY fp.create_date DESC
+	</select>
+
+	<update id="updateFailedLogTimes">
+		UPDATE
+			joyoung_failed_processlog
+		SET
+			process_time    = process_time+1
+			<if test="processComment != null and processComment != ''">
+				,process_comment = #{processComment}
+			</if>
+		WHERE
+			id= #{id}
+	</update>
+
+	<select id="getFailedLogById" resultType="java.lang.Long">
+		SELECT
+			id
+		FROM
+			joyoung_failed_processlog
+		WHERE
+			id = #{id}
+		LIMIT 1
+	</select>
+
+	<select id="getFailedLogMessageById" resultType="com.kkl.kklplus.entity.b2bcenter.rpt.B2BOrderProcesslog">
+		SELECT
+			id,
+			interface_name,
+			info_json,
+			result_json,
+			process_comment
+		FROM
+			joyoung_failed_processlog
+		WHERE
+			id = #{id}
+	</select>
+
+	<update id="closeFailedLogById">
+		UPDATE
+			joyoung_failed_processlog
+		SET
+			process_flag = 4
+		WHERE
+			id = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungConsultingOrderMapper" >
+    <insert id="insert"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO joyoung_consulting_order(
+        	kkl_order_id,
+        	consulting_no,
+			order_no,
+			consulting_type,
+			content,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			quarter
+		) VALUES (
+			#{kklOrderId},
+			#{consultingNo},
+			#{orderNo},
+			#{consultingType},
+			#{content},
+			#{createById},
+			#{createDt},
+			#{createById},
+			#{createDt},
+			#{quarter}
+		)
+    </insert>
+	<update id="updateProcessFlag">
+		UPDATE
+		joyoung_consulting_order
+		SET
+		process_flag = #{processFlag},
+		kkl_consulting_id = #{kklConsultingId}
+		<if test="processComment != null and processComment != ''">
+			,process_comment = #{processComment}
+		</if>
+		WHERE
+		id = #{id}
+	</update>
+	<select id="findConsultingOrderByConsultingNo"
+			resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungConsultingOrder">
+		SELECT
+			id,
+			kkl_order_id,
+			kkl_consulting_id,
+			consulting_type,
+			quarter
+		FROM
+			joyoung_consulting_order
+		WHERE
+			consulting_no = #{consultingNo}
+		limit 1
+	</select>
+</mapper>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungOrderInfoMapper" >
+    <insert id="insert"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO joyoung_order_info(
+			order_no,
+			user_name,
+			user_mobile,
+			user_phone,
+			user_province,
+			user_city,
+			user_county,
+			user_street,
+			user_address,
+			shop_id,
+			brand,
+			receive_date,
+			description,
+			remarks,
+			status,
+			issueBy,
+			items,
+			process_comment,
+			process_flag,
+			process_time,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			quarter
+		) VALUES (
+			#{orderNo},
+			#{userName},
+			#{userMobile},
+			#{userPhone},
+			#{userProvince},
+			#{userCity},
+			#{userCounty},
+			#{userStreet},
+			#{userAddress},
+			#{shopId},
+			#{brand},
+			#{receiveDate},
+			#{description},
+			#{remarks},
+			#{status},
+			#{issueBy},
+			#{itemsJson},
+			#{processComment},
+			#{processFlag},
+			#{processTime},
+			#{createById},
+			#{createDt},
+			#{updateById},
+			#{updateDt},
+			#{quarter}
+		)
+    </insert>
+
+	<select id="findOrderInfo" resultType="java.lang.Long" >
+		SELECT
+		id
+		FROM
+		joyoung_order_info
+		WHERE
+		order_no = #{orderNo}
+		limit 1
+	</select>
+
+	<select id="getList" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungOrderInfo">
+		SELECT
+			id,
+			order_no,
+			user_name,
+			user_mobile,
+			user_phone,
+			user_address,
+			shop_id,
+			brand,
+			receive_date,
+			description,
+			remarks,
+			status,
+			issueBy,
+			items as'itemsJson',
+			process_flag,
+			process_time,
+			process_comment,
+			create_date as 'createDt',
+			quarter
+		FROM
+			joyoung_order_info
+		<where>
+			<choose>
+				<when test="beginCreateDt != null ">
+					<choose>
+						<when test="endCreateDt != null">
+							AND create_date between #{beginCreateDt} and #{endCreateDt}
+						</when>
+						<otherwise>
+							AND create_date >= #{beginCreateDt}
+						</otherwise>
+					</choose>
+				</when>
+				<otherwise>
+					<if test="endCreateDt != null">
+						AND create_date &lt;=  #{endCreateDt}
+					</if>
+				</otherwise>
+			</choose>
+			AND process_flag BETWEEN 0 AND 3
+			<if test="processFlags != null">
+				AND process_flag in
+				<foreach collection="processFlags"  item="processFlag" open="(" close=")" separator=",">
+					#{processFlag.value}
+				</foreach>
+			</if>
+			<if test="parentBizOrderId != null and parentBizOrderId != ''">
+				AND order_no LIKE CONCAT(#{parentBizOrderId}, '%')
+			</if>
+			<if test="userName != null and userName != ''">
+				AND user_name LIKE CONCAT(#{userName}, '%')
+			</if>
+			<if test="userMobile != null and userMobile != ''">
+				AND user_mobile LIKE CONCAT(#{userMobile}, '%')
+			</if>
+			<if test="userAddress != null and userAddress != ''">
+				AND user_address LIKE CONCAT(#{userAddress}, '%')
+			</if>
+			<if test="brand != null and brand != ''">
+				AND brand LIKE CONCAT(#{brand},'%')
+			</if>
+		</where>
+		ORDER BY
+		create_date
+	</select>
+
+	<select id="findOrdersProcessFlag" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungOrderInfo">
+		SELECT
+		id,
+		order_no,
+		process_flag
+		FROM
+		joyoung_order_info
+		<where>
+			<if test="orderNos != null and orderNos.size > 0">
+					AND order_no in
+					<foreach collection="orderNos" item="o" open="(" close=")" separator=",">
+						#{o.b2bOrderNo}
+					</foreach>
+			</if>
+		</where>
+		<if test="orderNos == null or orderNos.size == 0">
+			limit 0
+		</if>
+	</select>
+
+	<update id="updateTransferResult">
+		UPDATE
+			joyoung_order_info
+		SET
+			process_flag = #{processFlag},
+			process_time = process_time+1,
+			kkl_order_id = #{kklOrderId},
+			kkl_order_no = #{kklOrderNo},
+			<if test="processFlag != 4">
+				process_comment = #{processComment},
+			</if>
+			update_date = #{updateDt}
+	  	WHERE
+	  		id = #{id}
+	</update>
+
+	<update id="cancelOrderTransition">
+		UPDATE
+			joyoung_order_info
+		SET
+			process_flag = #{processFlag},
+			process_time = process_time+1,
+			update_date = #{updateDt},
+			process_comment = #{processComment},
+			update_by = #{updater}
+		WHERE
+			order_no = #{b2bOrderNo}
+	</update>
+
+	<select id="findOrderNoByKklOrderId" resultType="java.lang.String">
+		SELECT
+			order_no
+		FROM
+			joyoung_order_info
+		WHERE
+			kkl_order_id = #{orderId}
+		LIMIT 1
+	</select>
+	<select id="findOrdersByIds" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungOrderInfo">
+		SELECT
+		id,
+		order_no,
+		process_flag
+		FROM
+		joyoung_order_info
+		<where>
+			<if test="ids != null and ids.size > 0">
+				<choose>
+					<when test="ids.size == 1">
+						id = #{ids[0]}
+					</when>
+					<otherwise>
+						id in
+						<foreach collection="ids" item="id" open="(" close=")" separator=",">
+							#{id}
+						</foreach>
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+		<if test="ids == null or ids.size == 0">
+			limit 0
+		</if>
+	</select>
+	<select id="findOrderByOrderNo" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungOrderInfo">
+		SELECT
+			kkl_order_id,
+			quarter
+		FROM
+			joyoung_order_info
+		WHERE
+			order_no = #{orderNo}
+		LIMIT 1
+	</select>
+</mapper>

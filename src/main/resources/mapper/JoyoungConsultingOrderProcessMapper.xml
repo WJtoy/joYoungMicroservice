@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungConsultingOrderProcessMapper" >
+    <insert id="insert"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO joyoung_consulting_order_process(
+        	consulting_no,
+			type,
+			process_content,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			quarter
+		) VALUES (
+			#{consultingNo},
+			#{type},
+			#{processContent},
+			#{createById},
+			#{createDt},
+			#{createById},
+			#{createDt},
+			#{quarter}
+		)
+    </insert>
+	<update id="updateProcessFlag">
+		UPDATE
+			joyoung_consulting_order_process
+		SET
+		process_flag = #{processFlag},
+		process_time = process_time+1,
+		process_comment = #{processComment},
+		update_date = #{updateDt}
+		WHERE
+		id = #{id}
+	</update>
+
+</mapper>

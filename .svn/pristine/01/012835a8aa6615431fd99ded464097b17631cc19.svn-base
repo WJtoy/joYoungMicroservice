@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungMaterialDeliverMapper" >
+    <insert id="insert"  keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO joyoung_material_deliver(
+			kkl_master_id,
+			kkl_master_no,
+			express_company,
+			express_no,
+			delivery_date,
+			remark,
+			process_flag,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			quarter
+		) VALUES (
+			#{kklMasterId},
+			#{kklMasterNo},
+			#{expressCompany},
+			#{expressNo},
+			#{deliveryDt},
+			#{remark},
+			#{processFlag},
+			#{createById},
+			#{createDt},
+			#{createById},
+			#{createDt},
+			#{quarter}
+		)
+    </insert>
+
+
+
+	<select id="findMaterialDeliverById" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungMaterialDeliver">
+		SELECT
+	  		id,
+	  		process_flag
+	  	FROM
+			joyoung_material_deliver
+		<if test="ids != null and ids.size > 0">
+	  	WHERE
+			id IN
+	  		<foreach collection="ids" item="id" open="(" separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+		<if test="ids == null or ids.size == 0">
+			limit 0
+		</if>
+	</select>
+
+	<select id="getList" resultType="com.kkl.kklplus.b2b.joyoung.entity.JoyoungMaterialDeliver">
+		SELECT
+			id,
+			kkl_master_id,
+			kkl_master_no,
+			express_company,
+			express_no,
+			delivery_date as 'deliveryDt',
+			remark,
+			process_time,
+			process_comment,
+			create_date as 'createDt',
+			quarter
+		FROM
+			joyoung_material_deliver
+		<where>
+			<choose>
+				<when test="beginCreateDt != null ">
+					<choose>
+						<when test="endCreateDt != null">
+							AND create_date between #{beginCreateDt} and #{endCreateDt}
+						</when>
+						<otherwise>
+							AND create_date >= #{beginCreateDt}
+						</otherwise>
+					</choose>
+				</when>
+				<otherwise>
+					<if test="endCreateDt != null">
+						AND create_date &lt;=  #{endCreateDt}
+					</if>
+				</otherwise>
+			</choose>
+			AND process_flag BETWEEN 0 AND 3
+			<if test="kklMasterNo != null and kklMasterNo != ''">
+				AND kkl_master_no = #{kklMasterNo}
+			</if>
+		</where>
+	</select>
+
+	<select id="findDeliverByMaterNo" resultType="java.lang.String">
+		SELECT
+			DISTINCT express_no
+		FROM
+			joyoung_material_deliver
+		WHERE
+			kkl_master_no = #{kklMasterNo}
+	</select>
+
+	<update id="updateProcessFlag">
+		UPDATE
+			joyoung_material_deliver
+		SET
+			process_flag = #{processFlag}
+			<if test="processComment != null and processComment != ''">
+				,process_comment = #{processComment}
+			</if>
+		WHERE
+			id = #{id}
+	</update>
+</mapper>

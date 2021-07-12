@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="40a84e7e-3efd-4b72-87db-46a3d80411d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/controller/JoyoungProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/controller/JoyoungProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/response/ProductData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/response/ProductData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/utils/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/utils/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Item\maven\repository" />
+        <option name="mavenHome" value="D:/Item/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Item\maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kOn3wUCWkU8OyeVKfIgZDTeUpG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="MyBatisLogPluginparameters" value="Parameters:" />
+    <property name="MyBatisLogPluginpreparing" value="Preparing:" />
+    <property name="MyBatisLogPluginrunning" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KKLPlusProviderAPI" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="B2BJoyoungApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kklplus-b2b-joyoung" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kkl.kklplus.b2b.B2BJoyoungApplication" />
+      <option name="ACTIVE_PROFILES" value="dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\admin\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\public\KKLPlusB2BJoyoung" />
+          <option name="myCopyRoot" value="D:\public\KKLPlusB2BJoyoung" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\public\KKLPlusB2BJoyoung" />
+          <option name="myCopyRoot" value="D:\public\KKLPlusB2BJoyoung" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40a84e7e-3efd-4b72-87db-46a3d80411d4" name="Default Changelist" comment="" />
+      <created>1605580309096</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605580309096</updated>
+      <workItem from="1605580314289" duration="19104000" />
+      <workItem from="1605663156964" duration="8567000" />
+      <workItem from="1605749616348" duration="595000" />
+      <workItem from="1605836446164" duration="610000" />
+      <workItem from="1606095211444" duration="596000" />
+      <workItem from="1606182279625" duration="3447000" />
+      <workItem from="1606267913527" duration="1648000" />
+      <workItem from="1606354353303" duration="594000" />
+      <workItem from="1606440704745" duration="1334000" />
+      <workItem from="1606699865853" duration="591000" />
+      <workItem from="1606786395083" duration="597000" />
+      <workItem from="1606872731233" duration="597000" />
+      <workItem from="1606959153262" duration="599000" />
+      <workItem from="1607045518163" duration="589000" />
+      <workItem from="1607131854557" duration="597000" />
+      <workItem from="1607305085430" duration="594000" />
+      <workItem from="1607391436986" duration="596000" />
+      <workItem from="1607477573779" duration="599000" />
+      <workItem from="1607563941983" duration="596000" />
+      <workItem from="1607650346328" duration="599000" />
+      <workItem from="1607909884561" duration="597000" />
+      <workItem from="1607996135357" duration="594000" />
+      <workItem from="1608082511699" duration="599000" />
+      <workItem from="1608168778091" duration="596000" />
+      <workItem from="1608255257088" duration="596000" />
+      <workItem from="1608514486369" duration="599000" />
+      <workItem from="1608600832158" duration="599000" />
+      <workItem from="1608687294050" duration="599000" />
+      <workItem from="1608773640320" duration="608000" />
+      <workItem from="1608860127582" duration="588000" />
+      <workItem from="1609119199070" duration="594000" />
+      <workItem from="1609205560754" duration="598000" />
+      <workItem from="1609292218423" duration="595000" />
+      <workItem from="1609378431706" duration="599000" />
+      <workItem from="1609724250809" duration="589000" />
+      <workItem from="1609810635881" duration="599000" />
+      <workItem from="1609896706838" duration="599000" />
+      <workItem from="1609983383955" duration="599000" />
+      <workItem from="1610069707368" duration="614000" />
+      <workItem from="1610328740975" duration="598000" />
+      <workItem from="1610415217203" duration="599000" />
+      <workItem from="1610501641856" duration="598000" />
+      <workItem from="1610588147831" duration="596000" />
+      <workItem from="1610674465035" duration="583000" />
+      <workItem from="1610760913158" duration="788000" />
+      <workItem from="1610933714410" duration="594000" />
+      <workItem from="1611020149439" duration="599000" />
+      <workItem from="1611106661572" duration="599000" />
+      <workItem from="1611192877273" duration="622000" />
+      <workItem from="1611279362886" duration="1202000" />
+      <workItem from="1611538420576" duration="599000" />
+      <workItem from="1611624881415" duration="583000" />
+      <workItem from="1611711380714" duration="1472000" />
+      <workItem from="1611797822635" duration="635000" />
+      <workItem from="1611884329865" duration="599000" />
+      <workItem from="1612143466319" duration="635000" />
+      <workItem from="1612229768246" duration="591000" />
+      <workItem from="1612316044951" duration="599000" />
+      <workItem from="1612402878585" duration="587000" />
+      <workItem from="1612489090960" duration="587000" />
+      <workItem from="1612502820803" duration="598000" />
+      <workItem from="1612747641658" duration="596000" />
+      <workItem from="1613699085772" duration="603000" />
+      <workItem from="1613957973686" duration="597000" />
+      <workItem from="1614044189946" duration="599000" />
+      <workItem from="1614130641647" duration="599000" />
+      <workItem from="1614216981332" duration="1198000" />
+      <workItem from="1614303357254" duration="598000" />
+      <workItem from="1614390178603" duration="598000" />
+      <workItem from="1614562775445" duration="599000" />
+      <workItem from="1614649288791" duration="1197000" />
+      <workItem from="1614735549576" duration="835000" />
+      <workItem from="1614822139477" duration="599000" />
+      <workItem from="1614908419097" duration="598000" />
+      <workItem from="1614995067482" duration="599000" />
+      <workItem from="1615167548446" duration="597000" />
+      <workItem from="1615254023253" duration="598000" />
+      <workItem from="1615340763606" duration="796000" />
+      <workItem from="1615426909838" duration="599000" />
+      <workItem from="1615513213514" duration="599000" />
+      <workItem from="1615599600164" duration="599000" />
+      <workItem from="1615772469329" duration="599000" />
+      <workItem from="1615858798471" duration="597000" />
+      <workItem from="1615945240680" duration="589000" />
+      <workItem from="1616031736512" duration="597000" />
+      <workItem from="1616118169981" duration="598000" />
+      <workItem from="1616204596697" duration="599000" />
+      <workItem from="1616377055847" duration="589000" />
+      <workItem from="1616463435540" duration="598000" />
+      <workItem from="1616636219436" duration="598000" />
+      <workItem from="1616722280544" duration="599000" />
+      <workItem from="1616808849465" duration="585000" />
+      <workItem from="1616981780634" duration="598000" />
+      <workItem from="1617068298986" duration="599000" />
+      <workItem from="1617154461571" duration="581000" />
+      <workItem from="1617240792772" duration="592000" />
+      <workItem from="1617254128146" duration="599000" />
+      <workItem from="1617327507208" duration="1196000" />
+      <workItem from="1617673039437" duration="598000" />
+      <workItem from="1617759544340" duration="599000" />
+      <workItem from="1617846014483" duration="588000" />
+      <workItem from="1617932243081" duration="599000" />
+      <workItem from="1618018621519" duration="597000" />
+      <workItem from="1620265167317" duration="608000" />
+      <workItem from="1620281926943" duration="599000" />
+      <workItem from="1620351688070" duration="597000" />
+      <workItem from="1620437841645" duration="599000" />
+      <workItem from="1620608823461" duration="599000" />
+      <workItem from="1620695386176" duration="599000" />
+      <workItem from="1620781559491" duration="599000" />
+      <workItem from="1620867927102" duration="592000" />
+      <workItem from="1620954289536" duration="597000" />
+      <workItem from="1621213617316" duration="599000" />
+      <workItem from="1621323680684" duration="631000" />
+      <workItem from="1621326260731" duration="588000" />
+      <workItem from="1621386726975" duration="598000" />
+      <workItem from="1621472806765" duration="597000" />
+      <workItem from="1621559369836" duration="597000" />
+      <workItem from="1621574137864" duration="599000" />
+      <workItem from="1621584508520" duration="597000" />
+      <workItem from="1621818434439" duration="597000" />
+      <workItem from="1621904873287" duration="598000" />
+      <workItem from="1621991457136" duration="597000" />
+    </task>
+    <task id="LOCAL-00001" summary="验证产品是否存在的接口">
+      <created>1605666340943</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605666340943</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="验证产品是否存在的接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="验证产品是否存在的接口" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="938" height="281" key="GridCell.Tab.0.bottom" timestamp="1612172021200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612172021200" />
+    <state width="938" height="281" key="GridCell.Tab.0.center" timestamp="1612172021200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612172021200" />
+    <state width="938" height="281" key="GridCell.Tab.0.left" timestamp="1612172021199">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612172021199" />
+    <state width="938" height="281" key="GridCell.Tab.0.right" timestamp="1612172021200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612172021200" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1606445789842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606445789842" />
+    <state x="669" y="235" key="MultipleFileMergeDialog" timestamp="1606445792085">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606445792085" />
+    <state x="773" y="365" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614674930824">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="773" y="365" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1614674930824" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/utils/HttpUtils.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/controller/JoyoungProductController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/utils/HttpUtils.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/http/utils/HttpUtils.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kkl/kklplus/b2b/joyoung/controller/JoyoungProductController.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

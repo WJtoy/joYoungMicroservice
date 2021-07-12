@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kkl.kklplus.b2b.joyoung.mapper.JoyoungMaterialMapper" >
+    <!--  插入数据  -->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into joyoung_material(
+            kkl_master_no,
+            kkl_master_id,
+            kkl_order_no,
+            kkl_order_id,
+            order_no,
+            status,
+            user_name,
+            user_mobile,
+            user_address,
+            pics,
+            master_count,
+            description,
+            mater_items,
+            process_flag,
+            process_time,
+            process_comment,
+            create_by,
+            create_date,
+            update_by,
+            update_date,
+            quarter,
+            return_flag
+        )
+        VALUES(
+            #{kklMasterNo},
+            #{kklMasterId},
+            #{kklOrderNo},
+            #{kklOrderId},
+            #{orderNo},
+            #{status},
+            #{userName},
+            #{userMobile},
+            #{userAddress},
+            #{picsJson},
+            #{masterCount},
+            #{description},
+            #{materItemsJson},
+            #{processFlag},
+            #{processTime},
+            #{processComment},
+            #{createById},
+            #{createDt},
+            #{createById},
+            #{updateDt},
+            #{quarter},
+            #{returnFlag}
+		)
+    </insert>
+    <!--  修改数据  -->
+    <update id="updateProcessFlag" >
+        UPDATE
+		    joyoung_material
+		SET
+            process_flag = #{processFlag},
+            process_time = process_time+1,
+            process_comment = #{processComment},
+            update_date = #{updateDt}
+		WHERE
+		    id = #{id}
+    </update>
+    <!--  按快可立配件单ID返回Id  -->
+    <select id="returnIdByKklMasterId" resultType="java.lang.Long">
+        SELECT
+            id
+        FROM
+            joyoung_material
+        WHERE
+            kkl_master_id = #{kklMasterId}
+    </select>
+    <!--  根据Id修改配件单信息  -->
+    <update id="updateMaterialInfo">
+        UPDATE
+		    joyoung_material
+		SET
+		    user_name = #{userName},
+            user_mobile = #{userMobile},
+            user_address = #{userAddress},
+            pics = #{picsJson},
+            master_count = #{masterCount},
+            description = #{description},
+            mater_items = #{materItemsJson}
+        WHERE
+            id = #{id}
+    </update>
+    <!--  修改配件单状态  -->
+    <update id="updateStatus">
+        UPDATE
+          joyoung_material
+        SET
+          status = #{status},
+          update_date = #{updateDt}
+        WHERE
+          id = #{id}
+    </update>
+
+
+    <select id="findMaterialByKklMasterNo" resultType="com.kkl.kklplus.entity.b2b.common.ThreeTuple">
+        SELECT
+          id as 'aElement',
+          kkl_master_id as 'bElement',
+          quarter as 'cElement'
+        FROM
+          joyoung_material
+        WHERE
+          kkl_master_no = #{kklMasterNo}
+        limit 1
+    </select>
+    <select id="findMaterialsByKklOrderId" resultType="com.kkl.kklplus.entity.common.material.B2BMaterial">
+        SELECT
+            id,
+            status,
+            kkl_master_no,
+            kkl_master_id
+        FROM
+            joyoung_material
+        WHERE
+            kkl_order_id = #{orderId}
+            AND process_flag = 4
+    </select>
+    <select id="findMaterialByKklMasterId" resultType="com.kkl.kklplus.entity.common.material.B2BMaterial">
+        SELECT
+            id,
+            status
+        FROM
+            joyoung_material
+        WHERE
+            kkl_master_id = #{kklMasterId}
+        Limit 1
+    </select>
+
+    <update id="updateProcessComment">
+        UPDATE
+          joyoung_material
+        SET
+          process_comment = #{processComment}
+        WHERE
+          id = #{id}
+    </update>
+</mapper>

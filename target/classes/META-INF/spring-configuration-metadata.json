@@ -1,0 +1,39 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone",
+      "type": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties"
+    },
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone.data-source-config",
+      "sourceMethod": "getDataSourceConfig()",
+      "type": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties$DataSourceConfig"
+    },
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone.okhttp",
+      "sourceMethod": "getOkhttp()",
+      "type": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties$OkHttpProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone.app-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone.app-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.kkl.kklplus.b2b.joyoung.http.config.B2BTooneProperties",
+      "name": "toone.methods",
+      "type": "java.lang.String[]"
+    }
+  ]
+}

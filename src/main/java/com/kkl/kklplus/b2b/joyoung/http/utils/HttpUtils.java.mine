@@ -1,0 +1,72 @@
+package com.kkl.kklplus.b2b.joyoung.http.utils;
+
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+import com.kkl.kklplus.b2b.joyoung.http.response.ProductData;
+import com.kkl.kklplus.b2b.joyoung.http.response.ResponseBody;
+import com.kkl.kklplus.b2b.joyoung.utils.SpringContextHolder;
+
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import java.io.IOException;
+import java.util.Map;
+
+/**
+ * @Auther wj
+ * @Date 2020/11/17 10:51
+ */
+public class HttpUtils {
+
+
+
+    private static OkHttpClient okHttpClient = SpringContextHolder.getBean(OkHttpClient.class);
+    private static Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+
+    public static <T> ResponseBody<T> getRequest(String url, Map<String, String> params, Class<T> dataClass) {
+        ResponseBody<T> responseBody = null;
+        HttpUrl.Builder httpBuilder = HttpUrl.parse(url).newBuilder();
+        if (params != null) {
+            for (Map.Entry<String, String> param : params.entrySet()) {
+                httpBuilder.addQueryParameter(param.getKey(), param.getValue());
+            }
+        }
+        Request request = new Request.Builder()
+                .url(httpBuilder.build())
+                .build();
+        try {
+            Response response = okHttpClient.newCall(request).execute();
+            if (response.isSuccessful()) {
+                if (response.body() != null) {
+                    String responseBodyJson = response.body().string();
+                    try {
+                        responseBody = gson.fromJson(responseBodyJson, new TypeToken<ResponseBody>() {
+                        }.getType());
+                        responseBody.setOriginalJson(responseBodyJson);
+                        try {
+                            T data = gson.fromJson(responseBodyJson, dataClass);
+                            responseBody.setData(data);
+                        } catch (Exception e) {
+                            return new ResponseBody<>(ResponseBody.ErrorCode.DATA_PARSE_FAILURE, e);
+                        }
+                    } catch (Exception e) {
+                        responseBody = new ResponseBody<>(ResponseBody.ErrorCode.JSON_PARSE_FAILURE, e);
+                        responseBody.setOriginalJson(responseBodyJson);
+                        return responseBody;
+                    }
+                } else {
+                    responseBody = new ResponseBody<>(ResponseBody.ErrorCode.HTTP_RESPONSE_BODY_ERROR);
+                }
+
+            }
+            return responseBody;
+        } catch (IOException e) {
+            return responseBody;
+        }
+    }
+}
